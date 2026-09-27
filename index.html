@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navro‘z Taomlari — Milliy dasturxon</title>
+<meta name="description" content="Navro‘z milliy taomlari — palov, sumalak, ko‘k somsa, manti va boshqa an’anaviy taomlar.">
+<style>
+:root{
+  --green:#126b45; --green2:#0d5135; --cream:#fff8e9; --gold:#d59a28;
+  --red:#b83a2d; --ink:#24332c; --muted:#6c756f; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #eee}
+.nav{max-width:1180px;margin:auto;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.logo{font-weight:900;font-size:24px;color:var(--green);display:flex;align-items:center;gap:9px}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:28px}
+nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+nav a:hover{color:var(--green)}
+.btn{display:inline-block;padding:13px 20px;border-radius:30px;text-decoration:none;font-weight:800;border:0;cursor:pointer}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green2)}
+.btn-light{background:#fff;color:var(--green)}
+.hero{min-height:680px;padding:145px 22px 80px;background:
+ radial-gradient(circle at 78% 25%,rgba(213,154,40,.22),transparent 25%),
+ linear-gradient(135deg,#f3fbf3 0%,#fff8e9 100%);overflow:hidden}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.badge{display:inline-flex;padding:8px 14px;border-radius:20px;background:#e6f4eb;color:var(--green);font-weight:800;font-size:13px;margin-bottom:20px}
+h1{font-size:clamp(45px,6vw,76px);line-height:.98;letter-spacing:-3px;margin-bottom:23px}
+h1 em{font-style:normal;color:var(--green)}
+.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:610px;margin-bottom:30px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{position:relative;height:430px}
+.plate{position:absolute;width:360px;height:360px;border-radius:50%;right:25px;top:25px;background:#fff;border:14px solid #f0e7d3;box-shadow:0 28px 70px rgba(30,50,40,.18);display:flex;align-items:center;justify-content:center;font-size:145px}
+.float{position:absolute;background:#fff;padding:14px 18px;border-radius:18px;box-shadow:0 15px 35px rgba(30,50,40,.12);font-weight:800}
+.f1{top:20px;left:20px}.f2{bottom:40px;right:0}.f3{bottom:15px;left:55px}
+section{padding:88px 22px}
+.container{max-width:1180px;margin:auto}
+.section-head{text-align:center;margin-bottom:38px}
+.kicker{color:var(--green);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px}
+h2{font-size:42px;letter-spacing:-1.5px;margin:8px 0 12px}
+.section-head p{color:var(--muted)}
+.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filter{padding:10px 17px;border:1px solid #ddd;border-radius:24px;background:#fff;cursor:pointer;font-weight:700;color:#53605a}
+.filter.active,.filter:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #eee;border-radius:22px;overflow:hidden;background:#fff;transition:.25s;box-shadow:0 8px 25px rgba(20,50,35,.05)}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(20,50,35,.12)}
+.food-img{height:190px;background:linear-gradient(135deg,#f8edcf,#e9f4e9);display:flex;align-items:center;justify-content:center;font-size:88px}
+.card-body{padding:20px}
+.card-top{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.card h3{font-size:21px}
+.tag{font-size:11px;font-weight:800;color:var(--green);background:#e8f4ec;padding:6px 9px;border-radius:12px}
+.card p{color:var(--muted);font-size:14px;line-height:1.55;margin:11px 0 16px}
+.meta{display:flex;justify-content:space-between;color:#64706a;font-size:13px;font-weight:700}
+.about{background:var(--green);color:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about h2{color:#fff}.about p{color:#d9eee2;line-height:1.7}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}
+.feature{padding:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:16px}
+.feature b{display:block;margin-bottom:5px}.feature span{font-size:13px;color:#d9eee2}
+.about-art{background:#fff8e9;color:var(--green);height:330px;border-radius:30px;display:flex;align-items:center;justify-content:center;font-size:150px;box-shadow:inset 0 0 0 12px rgba(213,154,40,.15)}
+.cta{background:var(--cream);text-align:center}
+.cta p{color:var(--muted);margin:10px auto 24px;max-width:600px}
+footer{background:#103e2b;color:#dcebe3;padding:28px 22px}
+.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}
+footer strong{color:#fff}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}.modal-box{background:#fff;border-radius:24px;max-width:480px;width:100%;padding:28px;position:relative}
+.close{position:absolute;right:17px;top:13px;border:0;background:none;font-size:28px;cursor:pointer}
+input,textarea{width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:12px;margin:7px 0 12px;font:inherit}
+@media(max-width:850px){
+ nav{display:none}.hero-inner,.about-grid{grid-template-columns:1fr}.hero{padding-top:120px}.hero-visual{height:360px}.plate{width:290px;height:290px;font-size:115px;right:50%;transform:translateX(50%)}
+ .grid{grid-template-columns:1fr 1fr}h1{letter-spacing:-2px}.footer-inner{flex-direction:column}
+}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero-visual{height:330px}.float{font-size:12px}.features{grid-template-columns:1fr}h2{font-size:34px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">🌱 Navro‘z bayrami<span>.</span></div>
+    <nav>
+      <a href="#taomlar">Taomlar</a><a href="#anana">An’ana</a><a href="#aloqa">Aloqa</a>
+    </nav>
+    <a class="btn btn-primary" href="#taomlar">Taomlarni ko‘rish</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="hero-inner">
+  <div>
+   <div class="badge">🌸 Bahor • Mehr • Baraka</div>
+   <h1>Navro‘zning <em>betakror</em> ta’mi.</h1>
+   <p>O‘zbek dasturxonining eng sevimli milliy taomlari bir joyda. An’anaviy retseptlar, boy tarix va bahor kayfiyati.</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#taomlar">🍽 Taomlarni ko‘rish</a><a class="btn" style="border:1px solid #d8d8d8" href="#anana">Navro‘z haqida</a></div>
+  </div>
+  <div class="hero-visual">
+   <div class="plate">🍲</div>
+   <div class="float f1">🌿 Sumalak</div><div class="float f2">🥟 Ko‘k somsa</div><div class="float f3">🍚 Osh</div>
+  </div>
+ </div>
+</section>
+
+<section id="taomlar">
+ <div class="container">
+  <div class="section-head"><div class="kicker">Milliy dasturxon</div><h2>Navro‘z taomlari</h2><p>Har bir taom — avloddan avlodga o‘tgan bir hikoya.</p></div>
+  <div class="filters">
+   <button class="filter active" data-cat="all">Barchasi</button><button class="filter" data-cat="asosiy">Asosiy taomlar</button>
+   <button class="filter" data-cat="shirin">Shirinlik</button><button class="filter" data-cat="pishiriq">Pishiriqlar</button>
+  </div>
+  <div class="grid" id="foodGrid">
+   <article class="card" data-cat="shirin"><div class="food-img">🌱</div><div class="card-body"><div class="card-top"><h3>Sumalak</h3><span class="tag">NAVRO‘Z</span></div><p>Bug‘doy niholidan tayyorlanadigan, bahorning ramzi bo‘lgan qadimiy taom.</p><div class="meta"><span>⏱ 12+ soat</span><span>★ An’anaviy</span></div></div></article>
+   <article class="card" data-cat="asosiy"><div class="food-img">🍚</div><div class="card-body"><div class="card-top"><h3>Palov</h3><span class="tag">ASOSIY</span></div><p>Guruch, go‘sht, sabzi va ziravorlar uyg‘unligidan yaratiladigan mashhur milliy taom.</p><div class="meta"><span>⏱ 2 soat</span><span>★ Klassik</span></div></div></article>
+   <article class="card" data-cat="pishiriq"><div class="food-img">🥟</div><div class="card-body"><div class="card-top"><h3>Ko‘k somsa</h3><span class="tag">BAHOR</span></div><p>Ko‘katlar bilan tayyorlanadigan xushbo‘y somsa — Navro‘z dasturxonining ko‘rki.</p><div class="meta"><span>⏱ 1 soat</span><span>★ Bahoriy</span></div></div></article>
+   <article class="card" data-cat="asosiy"><div class="food-img">🥟</div><div class="card-body"><div class="card-top"><h3>Manti</h3><span class="tag">ASOSIY</span></div><p>Yupqa xamirga solingan mazali masalliqdan bug‘da pishiriladigan taom.</p><div class="meta"><span>⏱ 1.5 soat</span><span>★ Sevimli</span></div></div></article>
+   <article class="card" data-cat="pishiriq"><div class="food-img">🫓</div><div class="card-body"><div class="card-top"><h3>Patir</h3><span class="tag">NON</span></div><p>Yog‘li, qatlamli va xushbo‘y milliy non. Dasturxonning ajralmas qismi.</p><div class="meta"><span>⏱ 45 daqiqa</span><span>★ Milliy</span></div></div></article>
+   <article class="card" data-cat="shirin"><div class="food-img">🍯</div><div class="card-body"><div class="card-top"><h3>Nisholda</h3><span class="tag">SHIRIN</span></div><p>Bahor bayramlarida tayyorlanadigan oppoq, yengil va nafis shirinlik.</p><div class="meta"><span>⏱ 2 soat</span><span>★ Bayramona</span></div></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="about" id="anana">
+ <div class="container about-grid">
+  <div><div class="kicker" style="color:#b9e6ca">Navro‘z falsafasi</div><h2>Taomdan ko‘ra ko‘proq — bu an’ana.</h2>
+   <p>Navro‘z — yangilanish, saxovat va birdamlik bayrami. Milliy taomlar esa ushbu qadriyatlarni dasturxon orqali avlodlarga yetkazib beradi.</p>
+   <div class="features"><div class="feature"><b>🌱 Yangilanish</b><span>Bahorning yangi nafasi.</span></div><div class="feature"><b>🤝 Birdamlik</b><span>Bir dasturxon atrofida jam bo‘lish.</span></div><div class="feature"><b>🌾 Baraka</b><span>Hosil va farovonlik tilagi.</span></div><div class="feature"><b>❤️ Mehr</b><span>Mehmonnavozlik va saxovat.</span></div></div>
+  </div>
+  <div class="about-art">🌸</div>
+ </div>
+</section>
+
+<section class="cta" id="aloqa">
+ <div class="container"><div class="kicker">Bayram dasturxoni</div><h2>Navro‘z muborak!</h2><p>Milliy taomlar menyusini yuklab olish yoki buyurtma bo‘yicha ma’lumot olish uchun bog‘laning.</p><button class="btn btn-primary" onclick="openModal()">📩 Bog‘lanish</button></div>
+</section>
+</main>
+
+<footer><div class="footer-inner"><div><strong>🌱 Navro‘z.</strong> Milliy taomlar olami</div><div>© 2026 • An’ana va zamonaviylik uyg‘unligi</div></div></footer>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><h2 style="font-size:30px">Bog‘lanish</h2><p style="color:#68736d;margin:8px 0 18px">Ma’lumot qoldiring — siz bilan bog‘lanamiz.</p><form onsubmit="submitForm(event)"><input required placeholder="Ismingiz"><input required type="tel" placeholder="Telefon raqamingiz"><textarea rows="3" placeholder="Xabaringiz"></textarea><button class="btn btn-primary" style="width:100%">Yuborish</button></form></div></div>
+
+<script>
+const filters=document.querySelectorAll('.filter'), cards=document.querySelectorAll('.card');
+filters.forEach(f=>f.addEventListener('click',()=>{
+ filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');
+ const cat=f.dataset.cat;
+ cards.forEach(c=>c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none');
+}));
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function submitForm(e){e.preventDefault();alert("Rahmat! So‘rovingiz qabul qilindi.");closeModal();e.target.reset()}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+</script>
+</body>
+</html>
